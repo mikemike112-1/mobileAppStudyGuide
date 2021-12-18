@@ -21,8 +21,15 @@ fun ObjectsNavGraph(
         startDestination = Routes.ObjectOneInfo.route
     ){
         composable(Routes.ObjectOneInfo.route){
-            //PageOneScreen(vm)
+            PageOneScreen(vm)
         }
 
     }
+}
+
+@Composable
+fun PageOneScreen(
+    vm: PageOneViewModel
+){
+    PageOneView(vm)
 }
