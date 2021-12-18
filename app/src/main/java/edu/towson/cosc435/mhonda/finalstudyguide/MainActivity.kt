@@ -8,6 +8,7 @@ import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
+import edu.towson.cosc435.mhonda.finalstudyguide.ui.MainScreen
 import edu.towson.cosc435.mhonda.finalstudyguide.ui.theme.FinalStudyGuideTheme
 
 class MainActivity : ComponentActivity() {
@@ -17,22 +18,9 @@ class MainActivity : ComponentActivity() {
             FinalStudyGuideTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(color = MaterialTheme.colors.background) {
-                    Greeting("Android")
+                    MainScreen()
                 }
             }
         }
-    }
-}
-
-@Composable
-fun Greeting(name: String) {
-    Text(text = "Hello $name!")
-}
-
-@Preview(showBackground = true)
-@Composable
-fun DefaultPreview() {
-    FinalStudyGuideTheme {
-        Greeting("Android")
     }
 }
