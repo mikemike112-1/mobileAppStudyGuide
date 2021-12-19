@@ -8,11 +8,11 @@ import edu.towson.cosc435.mhonda.finalstudyguide.model.ObjectOne
 
 @Dao
 interface ObjectsDao {
-    @Query("SELECT name FROM object")
+    @Query("SELECT id, name FROM ObjectOne")
     suspend fun getObjects(): List<ObjectOne>
 }
 
-@Database(entities = [ObjectOne::class], version = 1, exportSchema = false)
+@Database(entities = [ObjectOne::class], version = 2, exportSchema = false)
 abstract class ObjectsDatabase: RoomDatabase(){
     abstract fun objectDao(): ObjectsDao
 }

@@ -32,6 +32,10 @@ class PageOneViewModel: ViewModel() {
         privateName.value = name
     }
 
+    fun getObjectOnes(){
+        return
+    }
+
     fun validate(): ObjectOne {
         if(name.value.isEmpty()){
             throw Exception("error: name is empty")

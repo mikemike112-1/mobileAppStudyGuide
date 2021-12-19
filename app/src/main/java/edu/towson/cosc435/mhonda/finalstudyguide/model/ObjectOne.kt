@@ -6,6 +6,7 @@ import androidx.room.PrimaryKey
 @Entity
 data class ObjectOne(
     @PrimaryKey
+    val id: Int,
     val name: String
 ){
 }

@@ -25,9 +25,9 @@ import edu.towson.cosc435.mhonda.finalstudyguide.ui.nav.Routes
 fun PageOneView(
     vm: PageOneViewModel = viewModel(),
     nav: NavHostController,
-    objectOnes: List<ObjectOne>
 
 ) {
+
     Column(
 
     ) {
@@ -35,9 +35,12 @@ fun PageOneView(
         Box(
 
         ) {
+            val objects = (0..5).map { i ->
+                ObjectOne(i, "theName$i")
+            }
             LazyColumn {
-                itemsIndexed(objectOnes) { idx, objectOne ->
-                    ObjectOnesRow(objectOne)
+                itemsIndexed(objects) { idx, objectOne ->
+                    ObjectOnesRow( objectOne)
                 }
             }
         }

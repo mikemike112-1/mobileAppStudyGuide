@@ -9,7 +9,7 @@ class ObjectOneMemoryRepository : IObjectOneRepository {
 
     init {
         privateObjectOnes = (0..10).map { i ->
-            ObjectOne("defaultName$i")
+            ObjectOne(i,"defaultName$i")
         }
     }
 
