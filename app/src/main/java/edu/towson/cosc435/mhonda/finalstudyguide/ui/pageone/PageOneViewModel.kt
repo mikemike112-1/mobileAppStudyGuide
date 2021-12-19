@@ -1,8 +1,10 @@
 package edu.towson.cosc435.mhonda.finalstudyguide.ui.pageone
 
+import android.app.Application
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -13,14 +15,16 @@ import edu.towson.cosc435.mhonda.finalstudyguide.data.impl.ObjectsDatabaseReposi
 import edu.towson.cosc435.mhonda.finalstudyguide.model.MyObject
 
 
-class PageOneViewModel: ViewModel() {
+class PageOneViewModel(app: Application): AndroidViewModel(app) {
     private val privateName:MutableState<String> = mutableStateOf("")
     val name: State<String> = privateName
 
     private val privateMyObjects: MutableState<List<MyObject>> = mutableStateOf(listOf())
     val myObjects : State<List<MyObject>> = privateMyObjects
 
-    private val privateRepository: IMyObjectRepository = MyObjectMemoryRepository()
+    private val privateRepository: IMyObjectRepository = MyObjectMemoryRepository(
+        ObjectsDatabaseRepository(app)
+    )
 
     init {
         viewModelScope.launch{

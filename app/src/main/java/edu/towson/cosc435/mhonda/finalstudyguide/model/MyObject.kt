@@ -8,5 +8,4 @@ data class MyObject(
     @PrimaryKey
     val id: Int,
     val name: String
-){
-}
+)

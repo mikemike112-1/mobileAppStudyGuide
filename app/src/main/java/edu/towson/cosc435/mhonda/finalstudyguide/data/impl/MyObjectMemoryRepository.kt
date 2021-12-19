@@ -3,7 +3,9 @@ package edu.towson.cosc435.mhonda.finalstudyguide.data.impl
 import edu.towson.cosc435.mhonda.finalstudyguide.data.IMyObjectRepository
 import edu.towson.cosc435.mhonda.finalstudyguide.model.MyObject
 
-class MyObjectMemoryRepository : IMyObjectRepository {
+class MyObjectMemoryRepository(
+    private val db: ObjectsDatabaseRepository
+) : IMyObjectRepository{
 
     private var privateMyObjects = listOf<MyObject>()
 
@@ -14,7 +16,7 @@ class MyObjectMemoryRepository : IMyObjectRepository {
     }
 
     override suspend fun getObjects(): List<MyObject> {
-        return privateMyObjects
+        return db.getObjects()
     }
 
     override suspend fun addObject(myObject: MyObject) {
