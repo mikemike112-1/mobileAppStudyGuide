@@ -13,14 +13,14 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.em
 import androidx.compose.ui.unit.sp
-import edu.towson.cosc435.mhonda.finalstudyguide.model.ObjectOne
+import edu.towson.cosc435.mhonda.finalstudyguide.model.MyObject
 
 @Composable
-fun ObjectOnesRow(
-    objectOne: ObjectOne,
+fun MyObjectsRow(
+    myObject: MyObject,
 ){
     Text(
-        text = objectOne.name,
+        text = myObject.name,
         modifier = Modifier
             .fillMaxWidth()
             .padding(10.dp),

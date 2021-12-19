@@ -42,8 +42,8 @@ fun PageTwoView(
         )
         Button(
             onClick = {
-                nav.navigate(Routes.ObjectOneInfo.route){
-                    popUpTo(Routes.ObjectOneInfo.route)
+                nav.navigate(Routes.MyObjectInfo.route){
+                    popUpTo(Routes.MyObjectInfo.route)
                 }
             },
             modifier = Modifier.padding(16.dp)

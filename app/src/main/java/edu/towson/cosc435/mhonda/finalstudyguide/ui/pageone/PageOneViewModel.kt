@@ -5,26 +5,26 @@ import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import edu.towson.cosc435.mhonda.finalstudyguide.data.IObjectOneRepository
-import edu.towson.cosc435.mhonda.finalstudyguide.data.impl.ObjectOneMemoryRepository
-import edu.towson.cosc435.mhonda.finalstudyguide.model.ObjectOne
+import androidx.lifecycle.viewmodel.compose.viewModel
+import edu.towson.cosc435.mhonda.finalstudyguide.data.IMyObjectRepository
+import edu.towson.cosc435.mhonda.finalstudyguide.data.impl.MyObjectMemoryRepository
 import kotlinx.coroutines.launch
 import edu.towson.cosc435.mhonda.finalstudyguide.data.impl.ObjectsDatabaseRepository
+import edu.towson.cosc435.mhonda.finalstudyguide.model.MyObject
 
 
 class PageOneViewModel: ViewModel() {
     private val privateName:MutableState<String> = mutableStateOf("")
     val name: State<String> = privateName
 
-    private val privateObjectOnes: MutableState<List<ObjectOne>> = mutableStateOf(listOf())
-    val objectOnes : State<List<ObjectOne>> = privateObjectOnes
+    private val privateMyObjects: MutableState<List<MyObject>> = mutableStateOf(listOf())
+    val myObjects : State<List<MyObject>> = privateMyObjects
 
-    private val privateRepository: IObjectOneRepository = ObjectOneMemoryRepository()
-
+    private val privateRepository: IMyObjectRepository = MyObjectMemoryRepository()
 
     init {
         viewModelScope.launch{
-            privateObjectOnes.value = privateRepository.getObjects()
+            privateMyObjects.value = privateRepository.getObjects()
         }
     }
 
@@ -32,18 +32,23 @@ class PageOneViewModel: ViewModel() {
         privateName.value = name
     }
 
-    /*fun getObjectOnes(){
+    fun addObject(myObject: MyObject){
         viewModelScope.launch {
-            objectOnes.value = privateRepository.getObjects()
+            privateRepository.addObject(myObject)
         }
     }
 
+    /*fun getMyObjects(){
+        viewModelScope.launch {
+            myObjects.value = privateRepository.getObjects()
+        }
+    }
      */
 
-    fun validate(): ObjectOne {
+    fun validate(): MyObject {
         if(name.value.isEmpty()){
             throw Exception("error: name is empty")
         }
-        return ObjectOne(0, name.value)
+        return MyObject(0, name.value)
     }
 }
