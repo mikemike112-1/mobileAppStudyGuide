@@ -17,6 +17,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
+import edu.towson.cosc435.mhonda.finalstudyguide.data.impl.ObjectOneMemoryRepository
 import edu.towson.cosc435.mhonda.finalstudyguide.model.ObjectOne
 import edu.towson.cosc435.mhonda.finalstudyguide.ui.ObjectOnesRow
 import edu.towson.cosc435.mhonda.finalstudyguide.ui.nav.Routes
@@ -25,7 +26,6 @@ import edu.towson.cosc435.mhonda.finalstudyguide.ui.nav.Routes
 fun PageOneView(
     vm: PageOneViewModel = viewModel(),
     nav: NavHostController,
-
 ) {
 
     Column(
@@ -38,6 +38,9 @@ fun PageOneView(
             val objects = (0..5).map { i ->
                 ObjectOne(i, "theName$i")
             }
+//            launch.scope {
+//                val obs = mem.getObjects()
+//            }
             LazyColumn {
                 itemsIndexed(objects) { idx, objectOne ->
                     ObjectOnesRow( objectOne)

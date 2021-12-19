@@ -32,14 +32,18 @@ class PageOneViewModel: ViewModel() {
         privateName.value = name
     }
 
-    fun getObjectOnes(){
-        return
+    /*fun getObjectOnes(){
+        viewModelScope.launch {
+            objectOnes.value = privateRepository.getObjects()
+        }
     }
+
+     */
 
     fun validate(): ObjectOne {
         if(name.value.isEmpty()){
             throw Exception("error: name is empty")
         }
-        return ObjectOne(name.value)
+        return ObjectOne(0, name.value)
     }
 }
