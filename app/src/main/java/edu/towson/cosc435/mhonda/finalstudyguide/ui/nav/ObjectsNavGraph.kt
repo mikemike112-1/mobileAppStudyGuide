@@ -35,8 +35,11 @@ fun ObjectsNavGraph(
 @Composable
 fun PageOneScreen(
     vm: PageOneViewModel,
-    navController: NavHostController
+    navController: NavHostController,
+
 ){
+//    objectOnes: List<ObjectOne>
+
     PageOneView(vm, navController)
 }
 
