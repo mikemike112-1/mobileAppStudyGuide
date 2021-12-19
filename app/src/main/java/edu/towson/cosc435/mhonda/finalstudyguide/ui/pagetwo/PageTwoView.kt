@@ -1,4 +1,4 @@
-package edu.towson.cosc435.mhonda.finalstudyguide.ui.pageone
+package edu.towson.cosc435.mhonda.finalstudyguide.ui.pagetwo
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -9,26 +9,26 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import edu.towson.cosc435.mhonda.finalstudyguide.ui.pageone.PageOneViewModel
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import edu.towson.cosc435.mhonda.finalstudyguide.ui.nav.Routes
+import edu.towson.cosc435.mhonda.finalstudyguide.ui.pageone.PageOneViewModel
 
 @Composable
-fun PageOneView(
-    vm: PageOneViewModel = viewModel(),
+fun PageTwoView(
+    vm: PageTwoViewModel = viewModel(),
     nav: NavHostController
-
 ){
+
     Column (
         modifier = Modifier
             .fillMaxWidth()
-            ) {
+    ) {
         Text(
-            text = "page one view"
+            text = "page two view"
         )
+
         Text(
             text = vm.name.value
         )
@@ -42,13 +42,13 @@ fun PageOneView(
         )
         Button(
             onClick = {
-                nav.navigate(Routes.ObjectTwoInfo.route){
-                    popUpTo(Routes.ObjectTwoInfo.route)
+                nav.navigate(Routes.ObjectOneInfo.route){
+                    popUpTo(Routes.ObjectOneInfo.route)
                 }
             },
             modifier = Modifier.padding(16.dp)
         ){
-            Text("go to page two")
+            Text("go to page one")
         }
     }
 }
