@@ -7,7 +7,7 @@ import edu.towson.cosc435.mhonda.finalstudyguide.data.db.ObjectsDatabase
 import edu.towson.cosc435.mhonda.finalstudyguide.model.MyObject
 
 class ObjectsDatabaseRepository (app: Application) : IMyObjectRepository {
-    private  val db: ObjectsDatabase
+    private val db: ObjectsDatabase
 
     init{
         db = Room.databaseBuilder(

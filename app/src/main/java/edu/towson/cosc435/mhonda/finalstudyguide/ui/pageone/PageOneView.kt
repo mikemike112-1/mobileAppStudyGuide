@@ -36,16 +36,16 @@ fun PageOneView(
         Box(
 
         ) {
-            /*
+
             val objects = (0..5).map { i ->
                 MyObject(i, "theName$i")
             }
-             */
+
 //            launch.scope {
 //                val obs = mem.getObjects()
 //            }
 
-            
+
 
             LazyColumn {
                 itemsIndexed(objects) { idx, myObject ->
