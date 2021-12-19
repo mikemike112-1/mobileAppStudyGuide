@@ -48,7 +48,7 @@ fun PageOneView(
             },
             modifier = Modifier.padding(16.dp)
         ){
-            Text("ObjectTwoInfo Button")
+            Text("go to page two")
         }
     }
 }

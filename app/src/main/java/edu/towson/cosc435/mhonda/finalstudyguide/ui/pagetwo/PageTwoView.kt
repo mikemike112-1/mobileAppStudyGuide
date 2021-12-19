@@ -20,15 +20,14 @@ fun PageTwoView(
     vm: PageTwoViewModel = viewModel(),
     nav: NavHostController
 ){
-    Text(
-        text = "page two view"
-    )
 
     Column (
         modifier = Modifier
             .fillMaxWidth()
     ) {
-
+        Text(
+            text = "page two view"
+        )
 
         Text(
             text = vm.name.value
@@ -41,5 +40,15 @@ fun PageTwoView(
                 Text(text = "name placeholder")
             }
         )
+        Button(
+            onClick = {
+                nav.navigate(Routes.ObjectOneInfo.route){
+                    popUpTo(Routes.ObjectOneInfo.route)
+                }
+            },
+            modifier = Modifier.padding(16.dp)
+        ){
+            Text("go to page one")
+        }
     }
 }
