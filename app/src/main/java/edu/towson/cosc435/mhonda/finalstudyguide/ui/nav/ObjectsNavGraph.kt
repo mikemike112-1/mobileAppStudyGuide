@@ -9,21 +9,26 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import edu.towson.cosc435.mhonda.finalstudyguide.ui.pageone.PageOneView
 import edu.towson.cosc435.mhonda.finalstudyguide.ui.pageone.PageOneViewModel
+import edu.towson.cosc435.mhonda.finalstudyguide.ui.pagetwo.PageTwoView
+import edu.towson.cosc435.mhonda.finalstudyguide.ui.pagetwo.PageTwoViewModel
 
 @Composable
 fun ObjectsNavGraph(
     navController: NavHostController = rememberNavController()
 ){
-    val vm: PageOneViewModel = viewModel()
+    val vmOne: PageOneViewModel = viewModel()
+    val vmTwo: PageTwoViewModel = viewModel()
 
     NavHost(
         navController = navController,
         startDestination = Routes.ObjectOneInfo.route
     ){
         composable(Routes.ObjectOneInfo.route){
-            PageOneScreen(vm)
+            PageOneScreen(vmOne)
         }
-
+        composable(Routes.ObjectTwoInfo.route){
+            PageTwoScreen(vmTwo)
+        }
     }
 }
 
@@ -32,4 +37,11 @@ fun PageOneScreen(
     vm: PageOneViewModel
 ){
     PageOneView(vm)
+}
+
+@Composable
+fun PageTwoScreen(
+    vm: PageTwoViewModel
+){
+    PageTwoView(vm)
 }

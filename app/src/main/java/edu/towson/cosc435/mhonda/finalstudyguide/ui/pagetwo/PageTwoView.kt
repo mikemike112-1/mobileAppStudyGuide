@@ -1,4 +1,4 @@
-package edu.towson.cosc435.mhonda.finalstudyguide.ui.pageone
+package edu.towson.cosc435.mhonda.finalstudyguide.ui.pagetwo
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -9,22 +9,20 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import edu.towson.cosc435.mhonda.finalstudyguide.ui.pageone.PageOneViewModel
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.rememberNavController
 import edu.towson.cosc435.mhonda.finalstudyguide.ui.nav.Routes
+import edu.towson.cosc435.mhonda.finalstudyguide.ui.pageone.PageOneViewModel
 
 @Composable
-fun PageOneView(
-    vm: PageOneViewModel = viewModel()
+fun PageTwoView(
+    vm: PageTwoViewModel = viewModel()
 ){
+
     Column (
         modifier = Modifier
             .fillMaxWidth()
-            ) {
-        val nav = rememberNavController()
-
+    ) {
 
         Text(
             text = "plain static text here"
@@ -40,15 +38,5 @@ fun PageOneView(
                 Text(text = "name placeholder")
             }
         )
-        Button(
-            onClick = {
-                nav.navigate(Routes.ObjectTwoInfo.route){
-                    popUpTo(Routes.ObjectTwoInfo.route)
-                }
-            },
-            modifier = Modifier.padding(16.dp)
-        ){
-            Text("ObjectTwoInfo Button")
-        }
     }
 }
