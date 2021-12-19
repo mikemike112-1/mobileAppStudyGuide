@@ -24,24 +24,26 @@ fun ObjectsNavGraph(
         startDestination = Routes.ObjectOneInfo.route
     ){
         composable(Routes.ObjectOneInfo.route){
-            PageOneScreen(vmOne)
+            PageOneScreen(vmOne, navController)
         }
         composable(Routes.ObjectTwoInfo.route){
-            PageTwoScreen(vmTwo)
+            PageTwoScreen(vmTwo, navController)
         }
     }
 }
 
 @Composable
 fun PageOneScreen(
-    vm: PageOneViewModel
+    vm: PageOneViewModel,
+    navController: NavHostController
 ){
-    PageOneView(vm)
+    PageOneView(vm, navController)
 }
 
 @Composable
 fun PageTwoScreen(
-    vm: PageTwoViewModel
+    vm: PageTwoViewModel,
+    navController: NavHostController
 ){
-    PageTwoView(vm)
+    PageTwoView(vm, navController)
 }

@@ -12,22 +12,22 @@ import androidx.compose.ui.unit.dp
 import edu.towson.cosc435.mhonda.finalstudyguide.ui.pageone.PageOneViewModel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import edu.towson.cosc435.mhonda.finalstudyguide.ui.nav.Routes
 
 @Composable
 fun PageOneView(
-    vm: PageOneViewModel = viewModel()
+    vm: PageOneViewModel = viewModel(),
+    nav: NavHostController
+
 ){
     Column (
         modifier = Modifier
             .fillMaxWidth()
             ) {
-        val nav = rememberNavController()
-
-
         Text(
-            text = "plain static text here"
+            text = "page one view"
         )
         Text(
             text = vm.name.value

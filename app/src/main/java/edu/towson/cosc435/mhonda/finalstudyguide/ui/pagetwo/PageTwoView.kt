@@ -10,23 +10,26 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import edu.towson.cosc435.mhonda.finalstudyguide.ui.nav.Routes
 import edu.towson.cosc435.mhonda.finalstudyguide.ui.pageone.PageOneViewModel
 
 @Composable
 fun PageTwoView(
-    vm: PageTwoViewModel = viewModel()
+    vm: PageTwoViewModel = viewModel(),
+    nav: NavHostController
 ){
+    Text(
+        text = "page two view"
+    )
 
     Column (
         modifier = Modifier
             .fillMaxWidth()
     ) {
 
-        Text(
-            text = "plain static text here"
-        )
+
         Text(
             text = vm.name.value
         )
