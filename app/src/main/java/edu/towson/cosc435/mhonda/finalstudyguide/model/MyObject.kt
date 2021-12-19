@@ -4,7 +4,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity
-data class ObjectOne(
+data class MyObject(
     @PrimaryKey
     val id: Int,
     val name: String

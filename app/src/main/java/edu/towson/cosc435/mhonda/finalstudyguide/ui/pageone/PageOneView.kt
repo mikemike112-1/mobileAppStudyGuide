@@ -17,9 +17,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
-import edu.towson.cosc435.mhonda.finalstudyguide.data.impl.ObjectOneMemoryRepository
-import edu.towson.cosc435.mhonda.finalstudyguide.model.ObjectOne
-import edu.towson.cosc435.mhonda.finalstudyguide.ui.ObjectOnesRow
+import edu.towson.cosc435.mhonda.finalstudyguide.data.impl.MyObjectMemoryRepository
+import edu.towson.cosc435.mhonda.finalstudyguide.model.MyObject
+import edu.towson.cosc435.mhonda.finalstudyguide.ui.MyObjectsRow
 import edu.towson.cosc435.mhonda.finalstudyguide.ui.nav.Routes
 
 @Composable
@@ -36,14 +36,14 @@ fun PageOneView(
 
         ) {
             val objects = (0..5).map { i ->
-                ObjectOne(i, "theName$i")
+                MyObject(i, "theName$i")
             }
 //            launch.scope {
 //                val obs = mem.getObjects()
 //            }
             LazyColumn {
-                itemsIndexed(objects) { idx, objectOne ->
-                    ObjectOnesRow( objectOne)
+                itemsIndexed(objects) { idx, myObject ->
+                    MyObjectsRow( myObject)
                 }
             }
         }
@@ -71,8 +71,8 @@ fun PageOneView(
             )
             Button(
                 onClick = {
-                    nav.navigate(Routes.ObjectTwoInfo.route) {
-                        popUpTo(Routes.ObjectTwoInfo.route)
+                    nav.navigate(Routes.YourObjectInfo.route) {
+                        popUpTo(Routes.YourObjectInfo.route)
                     }
                 },
                 modifier = Modifier.padding(16.dp)

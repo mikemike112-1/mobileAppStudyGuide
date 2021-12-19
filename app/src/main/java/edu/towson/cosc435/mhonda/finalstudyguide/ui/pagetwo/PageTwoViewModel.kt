@@ -4,7 +4,7 @@ import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
-import edu.towson.cosc435.mhonda.finalstudyguide.model.ObjectOne
+import edu.towson.cosc435.mhonda.finalstudyguide.model.MyObject
 
 class PageTwoViewModel: ViewModel() {
     private val privateName: MutableState<String> = mutableStateOf("")
@@ -21,13 +21,13 @@ class PageTwoViewModel: ViewModel() {
         privateId.value = id
     }
 
-    fun validate(): ObjectOne {
+    fun validate(): MyObject {
         if(name.value.isEmpty()){
             throw Exception("error: name is empty")
         }
 
         //do i need to check the id value here?
 
-        return ObjectOne(id.value, name.value)
+        return MyObject(id.value, name.value)
     }
 }
