@@ -23,4 +23,7 @@ class ObjectsDatabaseRepository (app: Application) : IMyObjectRepository {
         return db.objectDao().getObjects()
     }
 
+    override suspend fun addObject(myObject: MyObject) {
+        db.objectDao().addObject(myObject)
+    }
 }

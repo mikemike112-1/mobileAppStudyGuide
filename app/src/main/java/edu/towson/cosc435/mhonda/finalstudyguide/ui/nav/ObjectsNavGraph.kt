@@ -24,11 +24,21 @@ fun ObjectsNavGraph(
         startDestination = Routes.MyObjectInfo.route
     ){
         composable(Routes.MyObjectInfo.route){
-            PageOneScreen(vmOne, navController)
-        }
+            //PageOneScreen(vmOne, navController) //this was the original
+            val pageOneViewModel: PageOneViewModel = viewModel()
+            PageOneView(
+                pageOneViewModel,
+                navController,
+                onAddObject = { myObject ->
+                    vmOne.addObject(myObject)
+                    navController.navigate(Routes.MyObjectInfo.route)
+                }
+            )
+        } //hi mike&ike
         composable(Routes.YourObjectInfo.route){
             PageTwoScreen(vmTwo, navController)
         }
+
     }
 }
 
@@ -39,7 +49,7 @@ fun PageOneScreen(
 
 ){
 
-    PageOneView(vm, navController)
+    PageOneView(vm, navController, {})
 }
 
 @Composable

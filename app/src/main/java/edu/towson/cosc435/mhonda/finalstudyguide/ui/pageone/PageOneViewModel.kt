@@ -5,6 +5,7 @@ import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.viewmodel.compose.viewModel
 import edu.towson.cosc435.mhonda.finalstudyguide.data.IMyObjectRepository
 import edu.towson.cosc435.mhonda.finalstudyguide.data.impl.MyObjectMemoryRepository
 import kotlinx.coroutines.launch
@@ -21,7 +22,6 @@ class PageOneViewModel: ViewModel() {
 
     private val privateRepository: IMyObjectRepository = MyObjectMemoryRepository()
 
-
     init {
         viewModelScope.launch{
             privateMyObjects.value = privateRepository.getObjects()
@@ -32,12 +32,17 @@ class PageOneViewModel: ViewModel() {
         privateName.value = name
     }
 
+    fun addObject(myObject: MyObject){
+        viewModelScope.launch {
+            privateRepository.addObject(myObject)
+        }
+    }
+
     /*fun getMyObjects(){
         viewModelScope.launch {
             myObjects.value = privateRepository.getObjects()
         }
     }
-
      */
 
     fun validate(): MyObject {

@@ -26,6 +26,7 @@ import edu.towson.cosc435.mhonda.finalstudyguide.ui.nav.Routes
 fun PageOneView(
     vm: PageOneViewModel = viewModel(),
     nav: NavHostController,
+    onAddObject: (MyObject) -> Unit
 ) {
 
     Column(
@@ -35,12 +36,17 @@ fun PageOneView(
         Box(
 
         ) {
+            /*
             val objects = (0..5).map { i ->
                 MyObject(i, "theName$i")
             }
+             */
 //            launch.scope {
 //                val obs = mem.getObjects()
 //            }
+
+            
+
             LazyColumn {
                 itemsIndexed(objects) { idx, myObject ->
                     MyObjectsRow( myObject)
@@ -79,6 +85,24 @@ fun PageOneView(
             ) {
                 Text("go to page two")
             }
+            Button(
+                onClick = {
+                          try {
+                              val myObject = vm.validate()
+                              onAddObject(myObject)
+                          } catch (e: Exception){
+                              //toast?
+                          }
+
+                    //nav.navigate(Routes.YourObjectInfo.route) {
+                    //    popUpTo(Routes.YourObjectInfo.route)
+                    //}
+                },
+                modifier = Modifier.padding(16.dp)
+            ) {
+                Text("go to page two")
+            }
+
         }
     }
 }

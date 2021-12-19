@@ -16,4 +16,8 @@ class MyObjectMemoryRepository : IMyObjectRepository {
     override suspend fun getObjects(): List<MyObject> {
         return privateMyObjects
     }
+
+    override suspend fun addObject(myObject: MyObject) {
+        privateMyObjects = listOf(myObject) + privateMyObjects
+    }
 }
