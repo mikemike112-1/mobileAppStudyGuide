@@ -10,13 +10,11 @@ import androidx.compose.material.Button
 import androidx.compose.material.OutlinedTextField
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import edu.towson.cosc435.mhonda.finalstudyguide.ui.pageone.PageOneViewModel
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
-import androidx.navigation.compose.rememberNavController
 import edu.towson.cosc435.mhonda.finalstudyguide.data.impl.MyObjectMemoryRepository
 import edu.towson.cosc435.mhonda.finalstudyguide.model.MyObject
 import edu.towson.cosc435.mhonda.finalstudyguide.ui.MyObjectsRow
@@ -24,10 +22,13 @@ import edu.towson.cosc435.mhonda.finalstudyguide.ui.nav.Routes
 
 @Composable
 fun PageOneView(
+    myObjects: List<MyObject>,
     vm: PageOneViewModel = viewModel(),
     nav: NavHostController,
     onAddObject: (MyObject) -> Unit
 ) {
+
+    //val myObjects by vm.myObjects
 
     Column(
 
@@ -41,6 +42,8 @@ fun PageOneView(
                 MyObject(i, "theName$i")
             }
 
+
+
 //            launch.scope {
 //                val obs = mem.getObjects()
 //            }
@@ -48,7 +51,7 @@ fun PageOneView(
 
 
             LazyColumn {
-                itemsIndexed(objects) { idx, myObject ->
+                itemsIndexed(myObjects) { idx, myObject ->
                     MyObjectsRow( myObject)
                 }
             }
