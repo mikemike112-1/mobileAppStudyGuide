@@ -26,7 +26,7 @@ fun PageOneView(
 ) {
 
     //val myObjects by vm.myObjects
-    val index = 0
+    val index = remember { mutableStateOf(0)}
     val newName = remember { mutableStateOf("")}
     Column(
 
@@ -84,7 +84,8 @@ fun PageOneView(
 
             Button(
                 onClick = {
-                    vm.addObject(MyObject(index, newName.value))
+                    vm.addObject(MyObject(index.value, newName.value))
+                    index.value = index.value + 1
                 },
                 modifier = Modifier.padding(16.dp)
             ) {
