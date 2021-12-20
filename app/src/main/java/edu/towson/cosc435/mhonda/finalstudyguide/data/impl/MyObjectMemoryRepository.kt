@@ -20,6 +20,7 @@ class MyObjectMemoryRepository(
     }
 
     override suspend fun addObject(myObject: MyObject) {
-        privateMyObjects = listOf(myObject) + privateMyObjects
+//        privateMyObjects = listOf(myObject) + privateMyObjects
+        db.addObject(myObject)
     }
 }

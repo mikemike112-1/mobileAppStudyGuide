@@ -1,13 +1,13 @@
 package edu.towson.cosc435.mhonda.finalstudyguide.ui.pageone
 
+import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material.Button
 import androidx.compose.material.OutlinedTextField
 import androidx.compose.material.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
+import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -26,7 +26,8 @@ fun PageOneView(
 ) {
 
     //val myObjects by vm.myObjects
-
+    val index = 0
+    val newName = remember { mutableStateOf("")}
     Column(
 
     ) {
@@ -74,21 +75,20 @@ fun PageOneView(
 
 
             OutlinedTextField(
-                value = vm.name.value,
-                onValueChange = vm::setName,
+                value = newName.value,
+                onValueChange = { newName.value = it },
                 placeholder = {
-                    Text(text = "name placeholder")
+                    Text(text = "New name")
                 }
             )
+
             Button(
                 onClick = {
-                    nav.navigate(Routes.YourObjectInfo.route) {
-                        popUpTo(Routes.YourObjectInfo.route)
-                    }
+                    vm.addObject(MyObject(index, newName.value))
                 },
                 modifier = Modifier.padding(16.dp)
             ) {
-                Text("go to page two")
+                Text("add object")
             }
             Button(
                 onClick = {
