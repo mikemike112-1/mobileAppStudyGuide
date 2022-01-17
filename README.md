@@ -1,3 +1,3 @@
 # mobileAppStudyGuide.
-this is the study guide app made for dec. 2021 final exam for android mobile development.
-was built with kotlin and run on android studio.
+This is the study guide app made for December 2021 final exam for the android mobile development course.
+It was built using Kotlin, Jetpack Compose, and Android Studio. 
